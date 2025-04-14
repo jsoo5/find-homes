@@ -9,7 +9,7 @@ import requests
 
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 # 사용자별 source_filter 저장
 user_file_choices = {}
