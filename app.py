@@ -17,8 +17,8 @@ user_file_choices = {}
 # 사용자별 최근 answer 저장
 user_answers = {}
 
-@app.route("/kakao-webhook", methods=["POST"])
-def kakao_webhook():
+@app.route("/chat", methods=["POST"])
+def chat():
     req = request.get_json()
     user_input = req['userRequest']['utterance']
     user_id = req['userRequest']['user']['id']
