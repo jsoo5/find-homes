@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from RAG import generate_answer_with_rag
 from QR import query_rewrite, yoyak
 import threading
@@ -6,7 +7,9 @@ import time
 import json
 import requests
 
+
 app = Flask(__name__)
+CORS(app)
 
 # 사용자별 source_filter 저장
 user_file_choices = {}
