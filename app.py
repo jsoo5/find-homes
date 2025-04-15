@@ -123,11 +123,11 @@ def process_request(user_input, callback_url, source_filter, user_id):
     except Exception as e:
         print("❌ Callback 전송 실패:", e)
 
-# if __name__ == "__main__":
-#     if os.getenv("AZURE_APP_SERVICE"):
-#         # Azure 배포용
-#         app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
-#     else:
-#         # 로컬 개발용
-#         app.run(debug=True, port=5000)
-#     #     app.run(debug=True)
+if __name__ == "__main__":
+    if os.getenv("AZURE_APP_SERVICE"):
+        # Azure 배포용
+        app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+    else:
+        # 로컬 개발용
+        app.run(debug=True, port=5000)
+    #     app.run(debug=True)
