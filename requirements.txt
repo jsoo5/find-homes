@@ -1,3 +1,4 @@
+os
 accelerate==1.0.1
 aiohappyeyeballs==2.4.4
 aiohttp==3.10.11
