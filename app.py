@@ -6,6 +6,7 @@ import threading
 import time
 import json
 import requests
+import os
 
 
 app = Flask(__name__)
@@ -123,10 +124,10 @@ def process_request(user_input, callback_url, source_filter, user_id):
         print("❌ Callback 전송 실패:", e)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-    # if os.getenv("AZURE_APP_SERVICE"):
-    #     # Azure 배포용
-    #     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
-    # else:
-    #     # 로컬 개발용
+    if os.getenv("AZURE_APP_SERVICE"):
+        # Azure 배포용
+        app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
+    else:
+        # 로컬 개발용
+        app.run(debug=True, port=5000)
     #     app.run(debug=True)
